@@ -1,0 +1,60 @@
+{
+    "Study Name": "Corvus Only",
+    "Production Logic": "Ratio Production",
+    "Rate Limit": {
+        "Rate Limit Staging": [
+            {
+                "Day": 0,
+                "Rate Limit": 75
+            }
+        ]
+    },
+    "Time Step": 60,
+    "Reservoir Abandon Rate": 3,
+    "Working Location": "C:\\Users\\daniel.gallo\\Xodus Group\\P100512-S00 - Documents\\Simulation\\9. Life of Field Analysis\\Linda LoF\\12inch 75 MMscfd",
+    "Production Profile": "C:\\Users\\daniel.gallo\\Xodus Group\\P100512-S00 - Documents\\Simulation\\9. Life of Field Analysis\\Linda LoF\\ProductionProfile.csv",
+    "Wells": {
+        "Wells": [
+            {
+                "Label": "Corvus 1 Well",
+                "Fluid": "Corvus_Av",
+                "Mass Source": "Corvus 1 Mass",
+                "MEG Source": "Corvus1-MEG",
+                "Well Flowline": "Corvus 1 Wellbore",
+                "Branch": "Corvus1 Jumper",
+                "Wing Valve": "Corvus 1 Choke"
+            },
+            {
+                "Label": "Corvus 2 Well",
+                "Fluid": "Corvus_Av",
+                "Mass Source": "Corvus 2 Mass",
+                "MEG Source": "Corvus2-MEG",
+                "Well Flowline": "Corvus 2 Wellbore",
+                "Branch": "Corvus2 Jumper",
+                "Wing Valve": "Corvus 2 Choke"
+            }
+        ],
+        "Production Staging": [
+            {
+                "Well Label": "Corvus 1 Well",
+                "Day": 0,
+                "Flow (use -1 for unbound)": -1
+            },
+            {
+                "Well Label": "Corvus 2 Well",
+                "Day": 0,
+                "Flow (use -1 for unbound)": -1
+            }
+        ]
+    },
+    "Full Network Model": "C:\\Users\\daniel.gallo\\Xodus Group\\P100512-S00 - Documents\\Simulation\\9. Life of Field Analysis\\Linda Base Model\\12-inch Rigid\\Linda_FullNetwork.genkey",
+    "Full Network Mass Source Model": "C:\\Users\\daniel.gallo\\Xodus Group\\P100512-S00 - Documents\\Simulation\\9. Life of Field Analysis\\Linda Base Model\\12-inch Rigid\\Linda_MassSource.genkey",
+    "Nework Wells Model": "C:\\Users\\daniel.gallo\\Xodus Group\\P100512-S00 - Documents\\Simulation\\9. Life of Field Analysis\\Linda Base Model\\12-inch Rigid\\Linda_Wells.genkey",
+    "OLGA Path": "C:\\Program Files (x86)\\Schlumberger\\OLGA 2015.2.1\\OlgaExecutables\\OLGA-2015.2.1.exe",
+    "Fluid Files": "",
+    "Export Pipeline": "Linda",
+    "Arrival Facility Label": "VI",
+    "Plant Backpressure": 60,
+    "Maximum Compressor Suction Pressure": 12.5,
+    "Minimum Compressor Suction Pressure": 12.5
+}

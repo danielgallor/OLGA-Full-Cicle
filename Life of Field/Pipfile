@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[[source]]
+url = "https://flux.xodusgroup.com/simple/"
+verify_ssl = false
+name = "iep-pypi"
+
+[packages]
+iep-common = {version="*", index="iep-pypi"}
+pandas = "*"
+pyfas = "*"
+pywin32 = "*"
+matplotlib = "*"
+openpyxl = "*"
+scipy = "*"
+sklearn = "*"
+plotly = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = false

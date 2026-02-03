@@ -1,0 +1,59 @@
+
+!**************************************************************************************
+! Generated with OLGA version 2015.3.1
+!**************************************************************************************
+
+!**************************************************************************************
+! Global keywords
+!**************************************************************************************
+OPTIONS FLOWMODEL=OLGAHD
+CASE AUTHOR=Schlumberger, PROJECT=OLGA, TITLE="Basic Case"
+FILES PVTFILE=""
+INTEGRATION ENDTIME=60 M, MAXDT=5 s, MINDT=0.01 s, STARTTIME=0 s, DTSTART=0.01 s
+OUTPUT DTOUT=1 h
+PROFILE DTPLOT=5 M
+TREND DTPLOT=15 s
+TRENDDATA VARIABLE=(VOLGBL, HT, GTSOUR)
+
+!**************************************************************************************
+! Library keywords
+!**************************************************************************************
+
+
+!**************************************************************************************
+! Network Component
+!**************************************************************************************
+NETWORKCOMPONENT TYPE=FLOWPATH, TAG=FP _PIPELINE
+ PARAMETERS LABEL=PIPELINE
+ GEOMETRY LABEL="GEOM-1"
+ PIPE ROUGHNESS=5E-05 m, LABEL="PIPE-1", WALL="WALL-1", NSEGMENT=10, LENGTH=400 m, \
+        ELEVATION=10 m, DIAMETER=0.12 m
+ BRANCH FLUID=FLUID
+ HEATTRANSFER LABEL="HEATTRANS-1", TAMBIENT=6 C, HAMBIENT=6.5 W/M2-C
+ SOURCE LABEL="SOURCE-1", TIME=0 M, PIPE="PIPE-1", SECTION=1
+ TRENDDATA PIPE="PIPE-1", SECTION=1, VARIABLE=(HOL, HOLWT, ID, PT, Q2, TM, TU)
+ PROFILEDATA VARIABLE=(HOL, PT, TM, QLT, QG, Q2, ID, QLTWT)
+ ENDNETWORKCOMPONENT
+
+!**************************************************************************************
+! Network Component
+!**************************************************************************************
+NETWORKCOMPONENT TYPE=NODE, TAG=NODE_INLET
+ PARAMETERS LABEL=INLET, TYPE=CLOSED
+ENDNETWORKCOMPONENT
+
+!**************************************************************************************
+! Network Component
+!**************************************************************************************
+NETWORKCOMPONENT TYPE=NODE, TAG=NODE_OUTLET
+ PARAMETERS LABEL=OUTLET, TYPE=PRESSURE, TEMPERATURE=22 C, PRESSURE=50 barg, \
+        FLUID=AVERAGE
+ENDNETWORKCOMPONENT
+
+!**************************************************************************************
+! Connections
+!**************************************************************************************
+CONNECTION TERMINALS = (FP INLET, NODE_INLET FLOWTERM_1)
+CONNECTION TERMINALS = (FP OUTLET, NODE_OUTLET FLOWTERM_1)
+
+ENDCASE
