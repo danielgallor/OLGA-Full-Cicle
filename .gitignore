@@ -19,3 +19,13 @@ Thumbs.db
 
 # Logs
 *.log
+
+
+# Outputs
+*.xlsx
+*.csv
+*.json
+
+# Post-processing outputs
+Profile Extractor/
+Post Processing/
