@@ -1,0 +1,28 @@
+# Builds the IEP Sign Tool Docker Image for use in the script signing pipeline.
+# https://aka.ms/yaml
+
+name: 'Signed Scripts Build'
+
+resources:
+  repositories:
+  - repository: templates
+    type: git
+    name: templates
+    ref: main
+
+variables:
+  version.MajorMinor: '0.0'
+  version.Revision: $[counter(variables['version.MajorMinor'], 0)]
+  versionNumber: '$(version.MajorMinor).$(version.Revision)'
+
+trigger: none
+
+stages:
+- stage: Sign
+  jobs:
+  - template: /signed-python-lib-template.yaml@templates
+    parameters:
+      versionNumber: $(versionNumber)
+      scriptName: olgapostprocessor
+      scriptPath: Post Processing
+      scriptDescription: Post Processes OLGA Output Files
